@@ -44,7 +44,7 @@
 	<div>
 		<%@include file="/WEB-INF/views/header.jsp"%>
 	</div>
-	<div class="container">
+	<!-- <div class="container"> -->
 		<div id="carouselBlk">
 	<div id="myCarousel" class="carousel slide">
 		<div class="carousel-inner">
