@@ -11,7 +11,8 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<mvc:default-servlet-handler />
 	<mvc:annotation-driven></mvc:annotation-driven>
-	<context:component-scan base-package="com.controller" />
+	<context:component-scan base-package="DigiCart.com.controller" />
+	<context:component-scan base-package="DigiCartBackend.com.daoImpl" />
 	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
 	<bean id="ViewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
