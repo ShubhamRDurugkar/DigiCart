@@ -64,30 +64,44 @@
 @media screen and (max-width: 600px) {
 	.topnav
 	
+	
 	 
+	
 	
 	a
 	
 	
+	
+	
 	:not
 	
+	
 	 
+	
 	
 	(
 	:first-child
 	
+	
 	 
+	
 	
 	)
 	{
 	display
 	
 	
+	
+	
 	:
+	
 	
 	 
 	
+	
 	none
+	
+	
 	
 	
 	;
@@ -117,7 +131,6 @@
 </style>
 </head>
 <body>
-	<header>
 	<div class="header">
 		<div class="navbar-fluid">
 			<div class="container">
@@ -186,6 +199,6 @@
 				x.className = "topnav";
 			}
 		}
-	</script> </header>
+	</script>
 </body>
 </html>

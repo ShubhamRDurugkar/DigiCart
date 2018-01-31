@@ -50,17 +50,17 @@
 		<div class="carousel-inner">
 		  <div class="item active">
 		  <div class="container">
-		<img style="width:100%"  src="images/2.png" alt="special offers 2.png"/>
+		<img style="width:100%"  src="resources/images/2.png" alt="special offers 2.png"/>
 		  </div>
 		  </div>
 		  <div class="item">
 		  <div class="container">
-		<img style="width:100%" src="images/3.png" alt="3.png"/>
+		<img style="width:100%" src="resources/images/3.png" alt="3.png"/>
 		  </div>
 		  </div>
 		  <div class="item">
 		  <div class="container">
-			<img style="width: 100%" src="images/7.png" alt="7.png"/>			
+			<img style="width: 100%" src="resources/images/7.png" alt="7.png"/>			
 		  </div>
 		  </div>
 		<!-- Left and right controls -->
@@ -82,7 +82,7 @@
 				<ul class="thumbnails">
 					<li class="span3">
 						<div class="thumbnail">
-							<a href="index.jsp"><img src="images/cam1.jpg" alt="" /></a>
+							<a href="index.jsp"><img src="resources/images/cam1.jpg" alt="" /></a>
 							<div class="caption">
 								<h5>Panasonic Lumix DC-GH5GA-K 4K Camera Body</h5>
 								<p>In Stock Available.</p>
@@ -96,7 +96,7 @@
 					</li>
 					<li class="span3">
 						<div class="thumbnail">
-							<a href="index.jsp"><img src="images/cam2.jpg" alt="" /></a>
+							<a href="index.jsp"><img src="resources/images/cam2.jpg" alt="" /></a>
 							<div class="caption">
 								<h5>Fujifilm INSTAX Wide 300 Instant Camera</h5>
 								<p>In Stock Available.</p>
@@ -108,7 +108,7 @@
 					</li>
 					<li class="span3">
 						<div class="thumbnail">
-							<a href="index.jsp"><img src="images/cam3.jpg" alt="" /></a>
+							<a href="index.jsp"><img src="resources/images/cam3.jpg" alt="" /></a>
 							<div class="caption">
 								<h5>Nikon Coolpix A10</h5>
 								<p>In Stock Available</p>
@@ -121,7 +121,7 @@
 					</li>
 					<li class="span3">
 						<div class="thumbnail">
-							<a href="index.jsp"><img src="images/w1.jpg" alt="" /></a>
+							<a href="index.jsp"><img src="resources/images/w1.jpg" alt="" /></a>
 							<div class="caption">
 								<h5>Timewear analog black dial slim watch for men</h5>
 								<p>In Stock Available</p>
@@ -135,7 +135,7 @@
 					</li>
 					<li class="span3">
 						<div class="thumbnail">
-							<a href="index.jsp"><img src="images/w2.jpg" alt="" /></a>
+							<a href="index.jsp"><img src="resources/images/w2.jpg" alt="" /></a>
 							<div class="caption">
 								<h5>Casio Edifice Analog Dial Men's Watch</h5>
 								<p>In Stock Available</p>
@@ -147,7 +147,7 @@
 					</li>
 					<li class="span3">
 						<div class="thumbnail">
-							<a href="index.jsp"><img src="images/w3.jpg" alt="" /></a>
+							<a href="index.jsp"><img src="resources/images/w3.jpg" alt="" /></a>
 							<div class="caption">
 								<h5>Sonata Analog Dial Men's Watch</h5>
 								<p>In Stock Available</p>
