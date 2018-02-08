@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="home"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -40,12 +41,12 @@
 			<div class="centered clearfix"></div>
 			<div class="bottom-bar">
 				<a href="https://www.facebook.com/"> <i style="font-size: 24px"
-					class="fa">&#xf082; </i></a>
-				<t> <a href="https://twitter.com/login"> <i
-					style="font-size: 24px" class="fa">&#xf099;</i></a> <t> <a
-					href="https://plus.google.com/"><i style="font-size: 24px"
-					class="fa">&#xf0d5;</i> </a> <t>All Rights Reserved © 2018 | <a
-					href="">About Us</a> | <a href="">Contact US</a>
+					class="fa">&#xf082; </i></a> <a href="https://twitter.com/login"> <i
+					style="font-size: 24px" class="fa">&#xf099;</i></a>
+				 <a href="https://plus.google.com/"> <i
+					style="font-size: 24px" class="fa">&#xf0d5;</i>
+				</a> 
+				All Rights Reserved © 2018 | <a href="">About Us</a> | <a href="">Contact US</a>
 			</div>
 		</div>
 	</div>

@@ -4,15 +4,16 @@
 	<groupId>com</groupId>
 	<artifactId>DigiCart</artifactId>
 	<packaging>war</packaging>
+
+	<name>DigiCart Webapp</name>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SpringMVC Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
+		<!-- DigiCart Backend -->
 		<dependency>
 			<groupId>com</groupId>
-			<artifactId>SpringMVCBackend</artifactId>
+			<artifactId>DigiCartBackend</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-
 		</dependency>
 		<!-- JUNIT -->
 		<dependency>
@@ -58,10 +59,15 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>4.3.12.RELEASE</version>
 		</dependency>
-
+		<!-- JSTL -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
 
 	</dependencies>
 	<build>
-		<finalName>SpringMVC</finalName>
+		<finalName>DigiCart</finalName>
 	</build>
 </project>

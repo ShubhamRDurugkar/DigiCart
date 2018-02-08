@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="home"%>
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">-->
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -62,49 +64,9 @@
 }
 
 @media screen and (max-width: 600px) {
-	.topnav
-	
-	
-	 
-	
-	
-	a
-	
-	
-	
-	
-	:not
-	
-	
-	 
-	
-	
-	(
-	:first-child
-	
-	
-	 
-	
-	
-	)
+	.topnav a:not(:first-child)
 	{
-	display
-	
-	
-	
-	
-	:
-	
-	
-	 
-	
-	
-	none
-	
-	
-	
-	
-	;
+	display:none;
 }
 
 .topnav a.icon {
@@ -131,6 +93,7 @@
 </style>
 </head>
 <body>
+
 	<div class="header">
 		<div class="navbar-fluid">
 			<div class="container">
@@ -150,7 +113,7 @@
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
 							<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-
+							<li><a href="adminPage"><i class="fa fa-admin"></i>Admin</a></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown" role="button" aria-haspopup="true"
 								aria-expanded="false">Category <span class="caret"></span></a>
@@ -175,9 +138,9 @@
 
 						<div id="navbar" class="navbar-collapse collapse">
 							<ul class="nav navbar-nav navbar-right">
-								<li><a href="#"> <i class="fa">&#xf2be;Register</i>
+								<li><a href="registerPage"> <i class="fa">&#xf2be;Register</i>
 								</a></li>
-								<li><a href="#"> <span class="glyphicon">&#xe195;SignIn</span></a></li>
+								<li><a href="loginPage"> <span class="glyphicon">&#xe195;SignIn</span></a></li>
 								<li><a href="javascript:void(0);" style="font-size: 15px;"
 									class="icon" onclick="myFunction()">&#9776;</a></li>
 							</ul>
@@ -189,7 +152,7 @@
 			</div>
 		</div>
 	</div>
-
+	
 	<script>
 		function myFunction() {
 			var x = document.getElementById("myTopnav");
