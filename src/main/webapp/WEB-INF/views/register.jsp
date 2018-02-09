@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="home"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
 <!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">-->
 <!DOCTYPE html>
 <html>
@@ -55,8 +58,8 @@ div#OR {
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">×</button>
+					<form:button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">×</form:button>
 					<h4 class="modal-title" id="myModalLabel">
 						Login/Registration - <a href="#home">Home</a>
 					</h4>
@@ -72,100 +75,106 @@ div#OR {
 							</ul>
 							<!-- Tab panes -->
 							<div class="tab-content">
-								<div class="tab-pane active" id="Login">
-									<form role="form" class="form-horizontal">
-										<div class="form-group">
-											<label for="email" class="col-sm-2 control-label">
-												Email</label>
-											<div class="col-sm-10">
-												<input type="email" class="form-control" id="email1"
-													placeholder="Email" />
+								<form:form id="loginuser" modelAttribute="user"
+									action="userLogin" method="post">
+									<div class="tab-pane active" id="Login">
+										<form role="form" class="form-horizontal">
+											<div class="form-group">
+												<form:label path="email" for="email"
+													class="col-sm-2 control-label">
+													Email</form:label>
+												<div class="col-sm-10">
+													<form:input path="email" name="email" type="email"
+														class="form-control" id="email" placeholder="Email" />
+												</div>
 											</div>
-										</div>
-										<div class="form-group">
-											<label for="password" class="col-sm-2 control-label">
-												Password</label>
-											<div class="col-sm-10">
-												<input type="password" class="form-control" id="password"
-													placeholder="Email" />
+											<div class="form-group">
+												<form:label path="password" for="password"
+													class="col-sm-2 control-label">
+													Password</form:label>
+												<div class="col-sm-10">
+													<form:input path="password" name="password" type="password"
+														class="form-control" id="password" placeholder="Email" />
+												</div>
 											</div>
-										</div>
-										<div class="row">
-											<div class="col-sm-2"></div>
-											<div class="col-sm-10">
-												<button type="submit" class="btn btn-primary btn-sm">
-													Submit</button>
-												<a href="javascript:;">Forgot your password?</a>
+											<div class="row">
+												<div class="col-sm-2"></div>
+												<div class="col-sm-10">
+													<form:button type="submit" class="btn btn-primary btn-sm">
+														Submit</form:button>
+												</div>
 											</div>
-										</div>
-									</form>
-								</div>
-								<div class="tab-pane" id="Registration">
-									<form role="form" class="form-horizontal">
-										<div class="form-group">
-											<label for="name" class="col-sm-2 control-label">
-												Name</label>
-											<div class="col-sm-10">
-												<div class="row">
-													<div class="col-md-9">
-														<input type="text" id="name" class="form-control"
-															placeholder="Name" />
+										</form>
+									</div>
+								</form:form>
+								<form:form id="reguser" modelAttribute="user"
+									action="saveRegister" method="post">
+									<div class="tab-pane" id="Registration">
+											<div class="form-group">
+												<form:label path="name" class="col-sm-2 control-label">
+												Name</form:label>
+												<div class="col-sm-10">
+													<div class="row">
+														<div class="col-md-9">
+															<form:input path="name" name="name" id="name"
+																placeholder="Name" />
+														</div>
 													</div>
 												</div>
 											</div>
-										</div>
-										<div class="form-group">
-											<label for="email" class="col-sm-2 control-label">
-												Email</label>
-											<div class="col-sm-10">
-												<input type="email" class="form-control" id="email"
-													placeholder="Email" />
+											<div class="form-group">
+												<form:label path="email" class="col-sm-2 control-label">
+												Email</form:label>
+												<div class="col-sm-10">
+													<form:input path="email" type="email" class="form-control"
+														name="email" id="email" placeholder="Email" />
+												</div>
 											</div>
-										</div>
-										<div class="form-group">
-											<label for="mobile" class="col-sm-2 control-label">
-												Mobile</label>
-											<div class="col-sm-10">
-												<input type="email" class="form-control" id="mobile"
-													placeholder="Mobile" />
+											<div class="form-group">
+												<form:label path="mobile" class="col-sm-2 control-label">
+												Mobile</form:label>
+												<div class="col-sm-10">
+													<form:input path="phone" name="phone" type="number"
+														class="form-control" id="mobile" placeholder="Mobile" />
+												</div>
 											</div>
-										</div>
-										<div class="form-group">
-											<label for="password" class="col-sm-2 control-label">
-												Password</label>
-											<div class="col-sm-10">
-												<input type="password" class="form-control" id="password"
-													placeholder="Password" />
+											<div class="form-group">
+												<form:label path="password" class="col-sm-2 control-label">
+												Password</form:label>
+												<div class="col-sm-10">
+													<form:input path="password" name="password "
+														type="password" class="form-control" id="password"
+														placeholder="Password" />
+												</div>
 											</div>
-										</div>
-										<div class="form-group">
-											<label for="address" class="col-sm-2 control-label">
-												Address</label>
-											<div class="col-sm-10">
-												<input type="textarea" class="form-control" id="address"
-													placeholder="Password" />
+											<div class="form-group">
+												<form:label path="address" class="col-sm-2 control-label">
+												Address</form:label>
+												<div class="col-sm-10">
+													<form:input path="address" name="address" type="textarea"
+														class="form-control" id="address" placeholder="Password" />
+												</div>
 											</div>
-										</div>
-										<div class="form-group">
-											<label for="country" class="col-sm-2 control-label">
-												Country</label>
-											<div class="col-sm-10">
-												<input type="text" class="form-control" id="country"
-													placeholder="Password" />
+											<div class="form-group">
+												<form:label path="country" class="col-sm-2 control-label">
+												Country</form:label>
+												<div class="col-sm-10">
+													<form:input path="country" name="country" type="text"
+														class="form-control" id="country" placeholder="Password" />
+												</div>
 											</div>
-										</div>
 
-										<div class="row">
-											<div class="col-sm-2"></div>
-											<div class="col-sm-10">
-												<button type="button" class="btn btn-primary btn-sm">
-													Save</button>
-												<button type="button" class="btn btn-default btn-sm">
-													Cancel</button>
+											<div class="row">
+												<div class="col-sm-2"></div>
+												<div class="col-sm-10">
+													<form:button type="button" class="btn btn-primary btn-sm">
+													Save</form:button>
+													<form:button type="button" class="btn btn-default btn-sm">
+													Cancel</form:button>
+												</div>
 											</div>
-										</div>
-									</form>
-								</div>
+									</div>
+								</form:form>
 							</div>
 						</div>
 					</div>
