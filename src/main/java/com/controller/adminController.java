@@ -1,15 +1,26 @@
-package com.controller;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-//import com.daoimpl.CategoryDaoImpl;
-//import com.daoimpl.ProductDaoImpl;
-//import com.daoimpl.SupplierDaoImpl;
-
-@Controller
-public class adminController {
+//package com.controller;
+//
+//import org.springframework.stereotype.Controller;
+//import org.springframework.web.bind.annotation.ModelAttribute;
+//import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestMethod;
+//import org.springframework.web.servlet.ModelAndView;
+//
+//import com.daoimpl.UserDaoImpl;
+//import com.model.User;
+//
+//@Controller
+//public class adminController {
+//	
+//	UserDaoImpl userDaoImpl;
+//	@RequestMapping(value="/saveRegister",method=RequestMethod.POST)
+//	public ModelAndView saveUser(@ModelAttribute("user")User user){
+//		ModelAndView mv=new ModelAndView();
+//		user.setRole("Role_USER");
+//		userDaoImpl.insertUser(user);
+//		mv.setViewName("index");
+//		return mv;
+//	}
 
 //	@Autowired
 //	CategoryDaoImpl categoryDaoImpl;
@@ -20,10 +31,10 @@ public class adminController {
 //	 @Autowired
 //	 ProductDaoImpl productDaoImpl;
 //
-	@RequestMapping(value = { "/adminPage" }, method = RequestMethod.GET)
-	public String adminPage() {
-		return "AdminAdd";
-	}
+//	@RequestMapping(value = { "/adminPage" }, method = RequestMethod.GET)
+//	public String adminPage() {
+//		return "AdminAdd";
+//	}
 //
 //	@RequestMapping(value = "/saveCategory/cid", method = RequestMethod.POST)
 //	public ModelAndView saveCategotyData(@RequestParam("cid") int cid, @RequestParam("cname") String cname) {
@@ -78,4 +89,4 @@ public class adminController {
 //
 //		return "AdminAdd";
 //	}
-}
+//}
