@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<spring:url var="css" value="/resources/css" />
 
 <!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">-->
 <!DOCTYPE html>
@@ -58,8 +60,6 @@ div#OR {
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-					<form:button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">×</form:button>
 					<h4 class="modal-title" id="myModalLabel">
 						Login/Registration - <a href="#home">Home</a>
 					</h4>
@@ -75,16 +75,14 @@ div#OR {
 							</ul>
 							<!-- Tab panes -->
 							<div class="tab-content">
-								<form:form id="loginuser" modelAttribute="user"
-									action="userLogin" method="post">
+								<!--<form:form id="user" modelAttribute="user"
+									class="form-horizontal" method="post">
 									<div class="tab-pane active" id="Login">
 										<form role="form" class="form-horizontal">
 											<div class="form-group">
-												<form:label path="email" for="email"
-													class="col-sm-2 control-label">
-													Email</form:label>
-												<div class="col-sm-10">
-													<form:input path="email" name="email" type="email"
+												<label class="col-sm-2 control-label"> Email</label>
+												<div class="col-sm-8">
+													<form:input path="email" type="email"
 														class="form-control" id="email" placeholder="Email" />
 												</div>
 											</div>
@@ -106,73 +104,72 @@ div#OR {
 											</div>
 										</form>
 									</div>
-								</form:form>
-								<form:form id="reguser" modelAttribute="user"
-									action="saveRegister" method="post">
+								</form:form>-->
+								<form:form id="user" action="/saveRegister"
+									modelAttribute="User" method="post">
 									<div class="tab-pane" id="Registration">
-											<div class="form-group">
-												<form:label path="name" class="col-sm-2 control-label">
+										<div class="form-group">
+											<form:label path="name" class="col-sm-2 control-label">
 												Name</form:label>
-												<div class="col-sm-10">
-													<div class="row">
-														<div class="col-md-9">
-															<form:input path="name" name="name" id="name"
-																placeholder="Name" />
-														</div>
+											<div class="col-sm-10">
+												<div class="row">
+													<div class="col-md-9">
+														<form:input path="name" name="name" id="name"
+															placeholder="Name" />
 													</div>
 												</div>
 											</div>
-											<div class="form-group">
-												<form:label path="email" class="col-sm-2 control-label">
+										</div>
+										<div class="form-group">
+											<form:label path="email" class="col-sm-2 control-label">
 												Email</form:label>
-												<div class="col-sm-10">
-													<form:input path="email" type="email" class="form-control"
-														name="email" id="email" placeholder="Email" />
-												</div>
+											<div class="col-sm-10">
+												<form:input path="email" type="email" class="form-control"
+													name="email" id="email" placeholder="Email" />
 											</div>
-											<div class="form-group">
-												<form:label path="mobile" class="col-sm-2 control-label">
+										</div>
+										<div class="form-group">
+											<form:label path="mobile" class="col-sm-2 control-label">
 												Mobile</form:label>
-												<div class="col-sm-10">
-													<form:input path="phone" name="phone" type="number"
-														class="form-control" id="mobile" placeholder="Mobile" />
-												</div>
+											<div class="col-sm-10">
+												<form:input path="phone" name="phone" type="number"
+													class="form-control" id="mobile" placeholder="Mobile" />
 											</div>
-											<div class="form-group">
-												<form:label path="password" class="col-sm-2 control-label">
+										</div>
+										<div class="form-group">
+											<form:label path="password" class="col-sm-2 control-label">
 												Password</form:label>
-												<div class="col-sm-10">
-													<form:input path="password" name="password "
-														type="password" class="form-control" id="password"
-														placeholder="Password" />
-												</div>
+											<div class="col-sm-10">
+												<form:input path="password" name="password " type="password"
+													class="form-control" id="password" placeholder="Password" />
 											</div>
-											<div class="form-group">
-												<form:label path="address" class="col-sm-2 control-label">
+										</div>
+										<div class="form-group">
+											<form:label path="address" class="col-sm-2 control-label">
 												Address</form:label>
-												<div class="col-sm-10">
-													<form:input path="address" name="address" type="textarea"
-														class="form-control" id="address" placeholder="Password" />
-												</div>
+											<div class="col-sm-10">
+												<form:input path="address" name="address" type="textarea"
+													class="form-control" id="address" placeholder="Password" />
 											</div>
-											<div class="form-group">
-												<form:label path="country" class="col-sm-2 control-label">
+										</div>
+										<div class="form-group">
+											<form:label path="country" class="col-sm-2 control-label">
 												Country</form:label>
-												<div class="col-sm-10">
-													<form:input path="country" name="country" type="text"
-														class="form-control" id="country" placeholder="Password" />
-												</div>
+											<div class="col-sm-10">
+												<form:input path="country" name="country" type="text"
+													class="form-control" id="country" placeholder="Password" />
 											</div>
+										</div>
 
-											<div class="row">
-												<div class="col-sm-2"></div>
-												<div class="col-sm-10">
-													<form:button type="button" class="btn btn-primary btn-sm">
+										<div class="row">
+											<div class="col-sm-2"></div>
+											<div class="col-sm-10">
+												<form:button type="button" class="btn btn-primary btn-sm">
 													Save</form:button>
-													<form:button type="button" class="btn btn-default btn-sm">
+												<form:button type="button" class="btn btn-default btn-sm">
 													Cancel</form:button>
-												</div>
 											</div>
+										</div>
 									</div>
 								</form:form>
 							</div>

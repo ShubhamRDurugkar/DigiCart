@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="home"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+<spring:url var="css" value="/resources/css" />
 <!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">-->
 <!DOCTYPE html>
 <html>
@@ -64,9 +67,23 @@
 }
 
 @media screen and (max-width: 600px) {
-	.topnav a:not(:first-child)
+	.topnav
+	 
+	a
+	:not
+	 
+	(
+	:first-child
+	 
+	)
 	{
-	display:none;
+	display
+	:
+	 
+	none
+	;
+	
+	
 }
 
 .topnav a.icon {
@@ -99,60 +116,60 @@
 			<div class="container">
 
 				<nav class="navbar navbar-inverse " class="navbar-collapse collapse">
-				<div class="container">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed"
-							data-toggle="collapse" data-target="#navbar"
-							aria-expanded="false" aria-controls="navbar">
-							<span class="sr-only">Toggle navigation</span> <span
-								class="icon-bar"></span> <span class="icon-bar"></span> <span
-								class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="index.jsp">DigiCart</a>
-					</div>
-					<div id="navbar" class="navbar-collapse collapse">
-						<ul class="nav navbar-nav">
-							<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-							<li><a href="adminPage"><i class="fa fa-admin"></i>Admin</a></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown" role="button" aria-haspopup="true"
-								aria-expanded="false">Category <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="#">Jeans</a></li>
-									<li><a href="#">Shirts</a></li>
-									<li><a href="#">Shoes</a></li>
-
-								</ul></li>
-
-						</ul>
-						<form class="navbar-form navbar-left">
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Search">
-								<span class="input-group-btn">
-									<button type="button" class="btn btn-default">
-										<span class="glyphicon glyphicon-search"></span>
-									</button>
-								</span>
-							</div>
-						</form>
-
+					<div class="container">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed"
+								data-toggle="collapse" data-target="#navbar"
+								aria-expanded="false" aria-controls="navbar">
+								<span class="sr-only">Toggle navigation</span> <span
+									class="icon-bar"></span> <span class="icon-bar"></span> <span
+									class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="index.jsp">DigiCart</a>
+						</div>
 						<div id="navbar" class="navbar-collapse collapse">
-							<ul class="nav navbar-nav navbar-right">
-								<li><a href="registerPage"> <i class="fa">&#xf2be;Register</i>
-								</a></li>
-								<li><a href="loginPage"> <span class="glyphicon">&#xe195;SignIn</span></a></li>
-								<li><a href="javascript:void(0);" style="font-size: 15px;"
-									class="icon" onclick="myFunction()">&#9776;</a></li>
+							<ul class="nav navbar-nav">
+								<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
+								<li><a href="adminPage"><i class="fa fa-admin"></i>Admin</a></li>
+								<li class="dropdown"><a href="#" class="dropdown-toggle"
+									data-toggle="dropdown" role="button" aria-haspopup="true"
+									aria-expanded="false">Category <span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="#">Jeans</a></li>
+										<li><a href="#">Shirts</a></li>
+										<li><a href="#">Shoes</a></li>
+
+									</ul></li>
+
 							</ul>
+							<form class="navbar-form navbar-left">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="Search">
+									<span class="input-group-btn">
+										<button type="button" class="btn btn-default">
+											<span class="glyphicon glyphicon-search"></span>
+										</button>
+									</span>
+								</div>
+							</form>
+
+							<div id="navbar" class="navbar-collapse collapse">
+								<ul class="nav navbar-nav navbar-right">
+									<li><a href="registerPage"> <i class="fa">&#xf2be;Register</i>
+									</a></li>
+									<li><a href="loginPage"> <span class="glyphicon">&#xe195;SignIn</span></a></li>
+									<li><a href="javascript:void(0);" style="font-size: 15px;"
+										class="icon" onclick="myFunction()">&#9776;</a></li>
+								</ul>
+							</div>
 						</div>
 					</div>
-				</div>
 				</nav>
 
 			</div>
 		</div>
 	</div>
-	
+
 	<script>
 		function myFunction() {
 			var x = document.getElementById("myTopnav");

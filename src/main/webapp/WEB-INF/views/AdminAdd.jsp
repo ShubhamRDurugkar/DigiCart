@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="home"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<spring:url var="css" value="/resources/css" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,26 +27,29 @@
 		</ul>
 		<div class="tab-content">
 			<div id="category" class="tab-pane fade in active">
-				<form action=/saveCategory>
+				<form method="post" action="/adminPage/saveCategory"
+					class="form-signin" enctype="multipart/form-data">
 					<h3>Update Category details</h3>
 					<div class="form-group">
 						<table class="table table-hover ">
 							<tbody>
 								<tr>
-									<td><label for=="cid">Category ID</label></td>
+									<td><label for="cid">Category ID</label></td>
 									<td><input type="text" class="form-control" id="cid"
-										placeholder="Enter category id">
+										placeholder="Enter category id" required>
 								</tr>
 								<tr>
 									<td><label for="cname">Category Name</label></td>
 									<td><input type="text" class="form-control" id="cname"
-										placeholder="Enter category name ">
+										placeholder="Enter category name " required>
 								</tr>
 								<tr>
 									<td>
-										<button type="submit" class="btn btn-default ">Submit
+										<button type="submit" class="btn btn-lg btn-primary ">Submit
 										</button>
 									</td>
+									<td><button type="reset" class="btn btn-lg btn-primary ">Cancel
+										</button></td>
 								</tr>
 							</tbody>
 						</table>
@@ -52,7 +57,8 @@
 				</form>
 			</div>
 			<div id="supplier" class="tab-pane fade ">
-				<form action=/saveSupplier>
+				<form method="post" action="/adminPage/saveSupplier"
+					class="form-signin" enctype="multipart/form-data">
 					<h3>Update Supplier Details</h3>
 					<div class="form-group">
 						<table class="table table-hover ">
@@ -60,16 +66,20 @@
 								<tr>
 									<td><label for="sid">Supplier ID</label></td>
 									<td><input type="text" class="form-control" id="sid"
-										placeholder="Enter Supplier id ">
+										placeholder="Enter Supplier id " required>
 								</tr>
 								<tr>
 									<td><label for="sname">Supplier Name</label></td>
 									<td><input type="text" class="form-control" id="sname"
-										placeholder="Enter Supplier name ">
+										placeholder="Enter Supplier name " required>
 								</tr>
 								<tr>
 									<td>
 										<button type="submit" class="btn btn-default ">Submit
+										</button>
+									</td>
+									<td>
+										<button type="reset" class="btn btn-lg btn-primary ">Cancel
 										</button>
 									</td>
 								</tr>
@@ -79,7 +89,9 @@
 				</form>
 			</div>
 			<div id="products" class="tab-pane fade ">
-				<form action=/saveProduct>
+				<form method="post"
+					action="/adminPage/saveProduct"
+					class="form-signin" enctype="multipart/form-data">
 					<h3>Update Produtcs Details</h3>
 					<div class="form-group">
 						<table class="table table-hover ">
@@ -87,12 +99,12 @@
 								<tr>
 									<td><label for="pid">Produtcs ID</label></td>
 									<td><input type="text" class="form-control" id="pid"
-										placeholder="Enter Produtcs id "></td>
+										placeholder="Enter Produtcs id " required></td>
 								</tr>
 								<tr>
 									<td><label for="pname">Produtcs Name</label></td>
 									<td><input type="text" class="form-control" id="pname"
-										placeholder="Enter Produtcs name "></td>
+										placeholder="Enter Produtcs name " required></td>
 								</tr>
 								<tr>
 									<td><label for="pDesc">Product Description</label></td>
@@ -101,22 +113,27 @@
 								<tr>
 									<td><label for="pPrice">Produtcs Price</label></td>
 									<td><input type="text" class="form-control" id="pPrice"
-										placeholder="Enter Produtcs price "></td>
+										placeholder="Enter Produtcs price " required></td>
 								</tr>
 
 								<tr>
 									<td><label for="pStock">Stock</label></td>
 									<td><input type="text" class="form-control" id="pStock"
-										placeholder="Enter Stock" name="pStock"></td>
+										placeholder="Enter Stock" name="pStock" required></td>
 								</tr>
 								<tr>
 									<td><label for="pDesc">Product Description</label></td>
-									<td><textarea class="form-control" id="pDesc" rows="3"></textarea></td>
+									<td><textarea class="form-control" id="pDesc" rows="3"
+											required></textarea></td>
 								</tr>
 								<tr>
 									<td><div class="form-group">
 											<label for="cid">Category ID</label> <select
 												class="form-control" id="cid" name="cid">
+												<option>-----Category---</option>
+												<c:forEach items="${catList}" var="cate">
+													<option value="${cate.cid }">${cate.cname}</option>
+												</c:forEach>
 												<option>cat 1</option>
 												<option>cat 2</option>
 											</select>
@@ -126,6 +143,10 @@
 									<td><div class="form-group">
 											<label for="sid">Supplier ID</label> <select
 												class="form-control" id="sid" name="sid">
+												<option>-----Supplier---</option>
+												<c:forEach items="${satList}" var="sate">
+													<option value="${sate.cid }">${sate.sname}</option>
+												</c:forEach> 
 												<option>supplier 1</option>
 												<option>supplier 2</option>
 											</select>
@@ -133,17 +154,20 @@
 								</tr>
 								<tr>
 									<td>
-										<div class="form-group">
-											<label for="pImage">Select Product Image</label> <input
-												type="file" class="form-control-file" id="pImage">
+										<div class="fileinput fileinput-new" data-provides="fileinput">
+											<label for="pImage">Product Image</label> <input type="file"
+												class="form-control-file" id="pImage" name="file"
+												accept="image/*" required>
 										</div>
 									</td>
 								</tr>
 								<tr>
 									<td>
-										<button type="submit" class="btn btn-default ">Submit
+										<button type="submit" class="btn btn-lg btn-primary ">Submit
 										</button>
 									</td>
+									<td><button type="reset" class="btn btn-lg btn-primary ">Cancel
+										</button></td>
 								</tr>
 							</tbody>
 						</table>

@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="home"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+<spring:url var="css" value="/resources/css" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,11 +45,11 @@
 			<div class="bottom-bar">
 				<a href="https://www.facebook.com/"> <i style="font-size: 24px"
 					class="fa">&#xf082; </i></a> <a href="https://twitter.com/login"> <i
-					style="font-size: 24px" class="fa">&#xf099;</i></a>
-				 <a href="https://plus.google.com/"> <i
-					style="font-size: 24px" class="fa">&#xf0d5;</i>
-				</a> 
-				All Rights Reserved © 2018 | <a href="">About Us</a> | <a href="">Contact US</a>
+					style="font-size: 24px" class="fa">&#xf099;</i></a> <a
+					href="https://plus.google.com/"> <i style="font-size: 24px"
+					class="fa">&#xf0d5;</i>
+				</a> All Rights Reserved © 2018 | <a href="">About Us</a> | <a href="">Contact
+					US</a>
 			</div>
 		</div>
 	</div>
