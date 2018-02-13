@@ -68,30 +68,15 @@
 
 @media screen and (max-width: 600px) {
 	.topnav
-	 
-	a
-	:not
-	 
-	(
-	:first-child
-	 
-	)
-	{
-	display
-	:
-	 
-	none
-	;
-	
-	
+	a:not (:first-child ) {
+		display: none;
+	}
+	.topnav a.icon {
+		float: right;
+		display: block;
+	}
 }
 
-.topnav a.icon {
-	float: right;
-	display: block;
-}
-
-}
 @media screen and (max-width: 600px) {
 	.topnav.responsive {
 		position: relative;
@@ -125,13 +110,22 @@
 									class="icon-bar"></span> <span class="icon-bar"></span> <span
 									class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="index.jsp">DigiCart</a>
+							<a class="navbar-brand" href="/home">DigiCart</a>
 						</div>
 						<div id="navbar" class="navbar-collapse collapse">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
+								<li><a href="/home"><i class="fa fa-home"></i>Home</a></li>
 								<li><a href="adminPage"><i class="fa fa-admin"></i>Admin</a></li>
 								<li class="dropdown"><a href="#" class="dropdown-toggle"
+									data-toggle="dropdown" role="button" aria-haspopup="true"
+									aria-expanded="false">ProductList <span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="#">Cat1</a></li>
+										<li><a href="#">Cat2</a></li>
+										<li><a href="#">Cat3</a></li>
+									</ul></li>
+
+								<!-- <li class="dropdown"><a href="#" class="dropdown-toggle"
 									data-toggle="dropdown" role="button" aria-haspopup="true"
 									aria-expanded="false">Category <span class="caret"></span></a>
 									<ul class="dropdown-menu">
@@ -139,10 +133,10 @@
 										<li><a href="#">Shirts</a></li>
 										<li><a href="#">Shoes</a></li>
 
-									</ul></li>
+									</ul></li>-->
 
 							</ul>
-							<form class="navbar-form navbar-left">
+							<!-- 		<form class="navbar-form navbar-left">
 								<div class="input-group">
 									<input type="text" class="form-control" placeholder="Search">
 									<span class="input-group-btn">
@@ -151,7 +145,7 @@
 										</button>
 									</span>
 								</div>
-							</form>
+							</form>-->
 
 							<div id="navbar" class="navbar-collapse collapse">
 								<ul class="nav navbar-nav navbar-right">

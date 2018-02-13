@@ -1,34 +1,19 @@
-//package com.controller;
-//
-//import java.io.BufferedOutputStream;
-//import java.io.FileOutputStream;
-//
-//import javax.servlet.http.HttpServletRequest;
-//
-//import org.springframework.stereotype.Controller;
-////import org.springframework.web.bind.annotation.ModelAttribute;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestMethod;
-//import org.springframework.web.bind.annotation.RequestParam;
-//import org.springframework.web.multipart.MultipartFile;
+package com.controller;
+
+import org.springframework.stereotype.Controller;
+//import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 //import org.springframework.web.servlet.ModelAndView;
 //
-//import com.daoimpl.CategoryDaoImpl;
-//import com.daoimpl.ProductDaoImpl;
-//import com.daoimpl.SupplierDaoImpl;
-//import com.model.Category;
-//import com.model.Product;
-//import com.model.Supplier;
+//import com.daoimpl.UserDaoImpl;
+//import com.model.User;
 //
-////import org.springframework.web.servlet.ModelAndView;
-////
-////import com.daoimpl.UserDaoImpl;
-////import com.model.User;
-////
-//@Controller
-//public class adminController {
-//
-//	// @Autowired
+@Controller
+public class adminController {
+
+	// @Autowired
 //	CategoryDaoImpl categoryDaoImpl;
 //
 //	// @Autowired
@@ -36,12 +21,12 @@
 //
 //	// @Autowired
 //	ProductDaoImpl productDaoImpl;
-//
-//	@RequestMapping(value = { "/adminPage" }, method = RequestMethod.GET)
-//	public String adminPage() {
-//		return "AdminAdd";
-//	}
-//
+
+	@RequestMapping(value = { "/adminPage" }, method = RequestMethod.GET)
+	public String adminPage() {
+		return "AdminAdd";
+	}
+
 //	@RequestMapping(value = "/saveCategory", method = RequestMethod.POST)
 //	public ModelAndView saveCategotyData(@RequestParam("cid") int cid, @RequestParam("cname") String cname) {
 //		ModelAndView mv = new ModelAndView();
@@ -54,8 +39,8 @@
 //		mv.setViewName("AdminAdd");
 //		return mv;
 //	}
-//
-//	// save supplier
+
+	// save supplier
 //	@RequestMapping(value = "/saveSupplier", method = RequestMethod.POST)
 //	public ModelAndView saveSupplierData(@RequestParam("sid") int sid, @RequestParam("sname") String sname) {
 //		ModelAndView mv = new ModelAndView();
@@ -93,4 +78,4 @@
 //
 //		return "AdminAdd";
 //	}
-//}
+}

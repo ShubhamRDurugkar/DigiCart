@@ -82,7 +82,7 @@
 					</div>
 
 					<div class="form-group">
-						<label for="pStock">Stock</label> <input type="pStock"
+						<label for="pStock">Stock</label> <input type="number"
 							class="form-control" id="pStock" placeholder="Enter Stock"
 							name="pStock">
 					</div>

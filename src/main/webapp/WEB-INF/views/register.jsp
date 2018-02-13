@@ -61,7 +61,7 @@ div#OR {
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title" id="myModalLabel">
-						Login/Registration - <a href="#home">Home</a>
+						Login/Registration - <a href="/home">Home</a>
 					</h4>
 				</div>
 				<div class="modal-body">
@@ -105,8 +105,7 @@ div#OR {
 										</form>
 									</div>
 								</form:form>-->
-								<form:form id="user" action="/saveRegister"
-									modelAttribute="User" method="post">
+								<form:form id="user" action="registerPage" modelAttribute="user" method="post">
 									<div class="tab-pane" id="Registration">
 										<div class="form-group">
 											<form:label path="name" class="col-sm-2 control-label">
