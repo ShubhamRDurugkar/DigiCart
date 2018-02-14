@@ -1,7 +1,8 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <spring:url var="css" value="/resources/css" />
 <!DOCTYPE html>
 <html lang="en">
@@ -21,27 +22,28 @@
 	<div class="container">
 		<h2 align="center">Admin</h2>
 		<ul class="nav nav-tabs nav-justified ">
-			<li class="active"><a href="#category ">Category </a></li>
-			<li><a href="#supplier">Supplier </a></li>
-			<li><a href="#products ">Products </a></li>
+			<li class="active"><a href="#saveCategory ">Category
+			</a></li>
+			<li><a href="#saveSupplier">Supplier </a></li>
+			<li><a href="#adminPage/saveProducts ">Products </a></li>
 		</ul>
 		<div class="tab-content">
 			<div id="category" class="tab-pane fade in active">
-				<form method="post" action="/adminPage/saveCategory"
-					class="form-signin" enctype="multipart/form-data">
+				<form method="post" action="<c:url value="/saveCat" />" class="form-signin"
+					enctype="multipart/form-data">
 					<h3>Update Category details</h3>
 					<div class="form-group">
 						<table class="table table-hover ">
 							<tbody>
 								<tr>
-									<td><label for="cid">Category ID</label></td>
-									<td><input type="text" class="form-control" id="cid"
-										placeholder="Enter category id" required>
+									<td><label>Category ID</label></td>
+									<td><input type="number" class="form-control" id="cid"
+										placeholder="Enter category id" name="cid" required/>
 								</tr>
 								<tr>
-									<td><label for="cname">Category Name</label></td>
+									<td><label>Category Name</label></td>
 									<td><input type="text" class="form-control" id="cname"
-										placeholder="Enter category name " required>
+										placeholder="Enter category name " name="cname" required/>
 								</tr>
 								<tr>
 									<td>
@@ -57,7 +59,7 @@
 				</form>
 			</div>
 			<div id="supplier" class="tab-pane fade ">
-				<form method="post" action="/adminPage/saveSupplier"
+				<form method="post" action="adminPage/saveSupplier"
 					class="form-signin" enctype="multipart/form-data">
 					<h3>Update Supplier Details</h3>
 					<div class="form-group">
@@ -89,8 +91,7 @@
 				</form>
 			</div>
 			<div id="products" class="tab-pane fade ">
-				<form method="post"
-					action="/adminPage/saveProduct"
+				<form method="post" action="/adminPage/saveProduct"
 					class="form-signin" enctype="multipart/form-data">
 					<h3>Update Produtcs Details</h3>
 					<div class="form-group">
@@ -146,7 +147,7 @@
 												<option>-----Supplier---</option>
 												<c:forEach items="${satList}" var="sate">
 													<option value="${sate.cid }">${sate.sname}</option>
-												</c:forEach> 
+												</c:forEach>
 												<option>supplier 1</option>
 												<option>supplier 2</option>
 											</select>

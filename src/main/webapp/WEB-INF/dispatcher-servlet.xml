@@ -13,10 +13,8 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<mvc:annotation-driven></mvc:annotation-driven>
 
 	<context:annotation-config />
-	<context:component-scan base-package="com.controller" />
-	<context:component-scan base-package="com.*" />
-	<!-- <context:component-scan base-package="DigiCartBackend.com.daoImpl" 
-		/> -->
+	<context:component-scan base-package="com" />
+
 	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
 	<bean id="ViewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

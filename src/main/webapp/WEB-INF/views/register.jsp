@@ -70,8 +70,8 @@ div#OR {
 							style="border-right: 1px dotted #C2C2C2; padding-right: 30px;">
 							<!-- Nav tabs -->
 							<ul class="nav nav-tabs">
-								<li class="active"><a href="#Login" data-toggle="tab">Login</a></li>
-								<li><a href="#Registration" data-toggle="tab">Registration</a></li>
+								<!-- li class="active"><a href="#Login" data-toggle="tab">Login</a></li>-->
+								<li><a href="/registerUser" data-toggle="tab">Registration</a></li>
 							</ul>
 							<!-- Tab panes -->
 							<div class="tab-content">
@@ -105,7 +105,8 @@ div#OR {
 										</form>
 									</div>
 								</form:form>-->
-								<form:form id="user" action="registerPage" modelAttribute="user" method="post">
+								<form:form id="user" action="registerUser"
+									cssClass="form-horizontal" modelAttribute="user" method="post">
 									<div class="tab-pane" id="Registration">
 										<div class="form-group">
 											<form:label path="name" class="col-sm-2 control-label">
@@ -113,8 +114,8 @@ div#OR {
 											<div class="col-sm-10">
 												<div class="row">
 													<div class="col-md-9">
-														<form:input path="name" name="name" id="name"
-															placeholder="Name" />
+														<form:input path="name" type="text" name="name" id="name"
+															class="form-control" placeholder="Name" />
 													</div>
 												</div>
 											</div>
@@ -128,7 +129,7 @@ div#OR {
 											</div>
 										</div>
 										<div class="form-group">
-											<form:label path="mobile" class="col-sm-2 control-label">
+											<form:label path="phone" class="col-sm-2 control-label">
 												Mobile</form:label>
 											<div class="col-sm-10">
 												<form:input path="phone" name="phone" type="number"
@@ -148,7 +149,7 @@ div#OR {
 												Address</form:label>
 											<div class="col-sm-10">
 												<form:input path="address" name="address" type="textarea"
-													class="form-control" id="address" placeholder="Password" />
+													class="form-control" id="address" placeholder="Enter address" />
 											</div>
 										</div>
 										<div class="form-group">
@@ -156,16 +157,15 @@ div#OR {
 												Country</form:label>
 											<div class="col-sm-10">
 												<form:input path="country" name="country" type="text"
-													class="form-control" id="country" placeholder="Password" />
+													class="form-control" id="country" placeholder="Enter Country" />
 											</div>
 										</div>
-
 										<div class="row">
 											<div class="col-sm-2"></div>
 											<div class="col-sm-10">
-												<form:button type="button" class="btn btn-primary btn-sm">
+												<form:button type="submit" class="btn btn-primary btn-sm">
 													Save</form:button>
-												<form:button type="button" class="btn btn-default btn-sm">
+												<form:button type="reset" class="btn btn-default btn-sm">
 													Cancel</form:button>
 											</div>
 										</div>

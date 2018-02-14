@@ -114,8 +114,8 @@
 						</div>
 						<div id="navbar" class="navbar-collapse collapse">
 							<ul class="nav navbar-nav">
-								<li><a href="/home"><i class="fa fa-home"></i>Home</a></li>
-								<li><a href="adminPage"><i class="fa fa-admin"></i>Admin</a></li>
+								<li><a href="home"><i class="fa fa-home"></i>Home</a></li>
+								<li><a href="admin"><i class="fa fa-admin"></i>Admin</a></li>
 								<li class="dropdown"><a href="#" class="dropdown-toggle"
 									data-toggle="dropdown" role="button" aria-haspopup="true"
 									aria-expanded="false">ProductList <span class="caret"></span></a>
