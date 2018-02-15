@@ -1,5 +1,6 @@
 package com.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,13 +16,13 @@ import com.model.Supplier;
 @Configuration
 public class adminController {
 
-	 //@Autowired
+	@Autowired
 	CategoryDaoImpl categoryDaoImpl;
 
-	// @Autowired
+	 @Autowired
 	SupplierDaoImpl supplierDaoImpl;
-//
-//	// @Autowired
+
+//	 @Autowired
 //	ProductDaoImpl productDaoImpl;
 	
 
@@ -29,16 +30,17 @@ public class adminController {
 	public String adminPage() {
 		return "AdminAdd";
 	}
-
+	
 	@RequestMapping(value = "/saveCat", method = RequestMethod.POST)
-	public ModelAndView saveCategotyData(@RequestParam("cid")int cid, @RequestParam("cname") String cname) {
+	public ModelAndView saveCategotyData(@RequestParam("cid") String cid, @RequestParam("cname") String cname) {
 		ModelAndView mv = new ModelAndView();
 		Category category = new Category();
 		category.setCid(cid);
 		category.setCname(cname);
 
 		categoryDaoImpl.insertCategory(category);
-
+		mv.addObject("msg", "Category \'"+ cid + " - " + cname+ "\' Added Successfully");
+		System.out.println("Category "  + cname + " Added Successfully");
 		mv.setViewName("home");
 		return mv;
 	}

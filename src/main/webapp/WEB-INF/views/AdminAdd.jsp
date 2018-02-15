@@ -1,7 +1,7 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <spring:url var="css" value="/resources/css" />
 <!DOCTYPE html>
@@ -22,28 +22,27 @@
 	<div class="container">
 		<h2 align="center">Admin</h2>
 		<ul class="nav nav-tabs nav-justified ">
-			<li class="active"><a href="#saveCategory ">Category
-			</a></li>
+			<li class="active"><a href="#saveCategory ">Category </a></li>
 			<li><a href="#saveSupplier">Supplier </a></li>
 			<li><a href="#adminPage/saveProducts ">Products </a></li>
 		</ul>
 		<div class="tab-content">
 			<div id="category" class="tab-pane fade in active">
-				<form method="post" action="<c:url value="/saveCat" />" class="form-signin"
-					enctype="multipart/form-data">
+				<form method="post" action="<c:url value="/saveCat" />"
+					class="form-signin" enctype="multipart/form-data">
 					<h3>Update Category details</h3>
 					<div class="form-group">
 						<table class="table table-hover ">
 							<tbody>
 								<tr>
 									<td><label>Category ID</label></td>
-									<td><input type="number" class="form-control" id="cid"
-										placeholder="Enter category id" name="cid" required/>
+									<td><input type="text" class="form-control" id="cid"
+										placeholder="Enter category id" name="cid" />
 								</tr>
 								<tr>
 									<td><label>Category Name</label></td>
 									<td><input type="text" class="form-control" id="cname"
-										placeholder="Enter category name " name="cname" required/>
+										placeholder="Enter category name " name="cname" />
 								</tr>
 								<tr>
 									<td>

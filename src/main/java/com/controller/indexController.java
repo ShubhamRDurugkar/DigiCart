@@ -1,5 +1,6 @@
 package com.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,14 +20,7 @@ public class indexController {
 
 	}
 
-	// @RequestMapping(value = { "/registerPage" }, method = RequestMethod.GET)
-	// public ModelAndView registerPage(ModelAndView model) {
-	// model.setViewName("register");
-	// return model;
-	//
-	// }
-
-	// @Autowired
+	@Autowired
 	UserDaoImpl userDaoImpl;
 
 	@RequestMapping(value = "/registerPage", method = RequestMethod.GET)
@@ -41,20 +35,13 @@ public class indexController {
 
 	}
 
-	@RequestMapping(value = "/registerUser", method =RequestMethod.POST)
-	 public ModelAndView saveUser(@ModelAttribute("user") User user) {
-	 ModelAndView mv = new ModelAndView();
-	 mv.getModel();
-	 user.setRole("Role_USER");
-	 user.setEnabled(true);
-	 userDaoImpl.insertUser(user);
-	 mv.setViewName("home");
-	 return mv;
-	 }
-
-	// @RequestMapping(value = { "/loginPage" }, method = RequestMethod.GET)
-	// public ModelAndView loginPage(ModelAndView model) {
-	// model.setViewName("register");
-	// return model;
-	// }
+	@RequestMapping(value = "/registerUser", method = RequestMethod.POST)
+	public ModelAndView saveUser(@ModelAttribute("user") User user) {
+		ModelAndView mv = new ModelAndView();
+		user.setRole("Role_USER");
+		user.setEnabled(true);
+		userDaoImpl.insertUser(user);
+		mv.setViewName("home");
+		return mv;
+	}
 }
