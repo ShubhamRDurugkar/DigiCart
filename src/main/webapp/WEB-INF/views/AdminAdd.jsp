@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page isELIgnored="false" language="java"%>
+<c:set var="contextRoot" value="${pageContext.request.contextPath}"></c:set>
 <spring:url var="css" value="/resources/css" />
 <!DOCTYPE html>
 <html lang="en">
@@ -14,35 +16,42 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="main.js"></script>
 </head>
 <body bgcolor="lightblue">
 	<!-- %@include file="/WEB-INF/views/header.jsp"%>-->
 	<div class="container">
 		<h2 align="center">Admin</h2>
-		<ul class="nav nav-tabs nav-justified ">
-			<li class="active"><a href="#saveCategory ">Category </a></li>
-			<li><a href="#saveSupplier">Supplier </a></li>
-			<li><a href="#adminPage/saveProducts ">Products </a></li>
+		<ul class="nav nav-tabs justified ">
+			<li class="active"><a data-toggle="tab" href="#category ">Category
+			</a></li>
+			<li><a data-toggle="tab" href="#supplier">Supplier </a></li>
+			<li><a data-toggle="tab" href="#products ">Products </a></li>
 		</ul>
 		<div class="tab-content">
+			<!-- Category Tab -->
 			<div id="category" class="tab-pane fade in active">
-				<form method="post" action="<c:url value="/saveCat" />"
-					class="form-signin" enctype="multipart/form-data">
+				<form:form action="${contextRoot}/admin/saveCate"
+					modelAttribute="category" method="post">
 					<h3>Update Category details</h3>
 					<div class="form-group">
 						<table class="table table-hover ">
 							<tbody>
 								<tr>
-									<td><label>Category ID</label></td>
-									<td><input type="text" class="form-control" id="cid"
-										placeholder="Enter category id" name="cid" />
+									<td><form:label path="cid">Category ID</form:label></td>
+									<td><form:input type="text" path="cid"
+											class="form-control" id="cid" placeholder="Enter category id"
+											name="cid" />
 								</tr>
 								<tr>
-									<td><label>Category Name</label></td>
-									<td><input type="text" class="form-control" id="cname"
-										placeholder="Enter category name " name="cname" />
+									<td><form:label path="cname">Category Name</form:label></td>
+									<td><form:input path="cname" type="text"
+											class="form-control" id="cname"
+											placeholder="Enter category name " name="cname" />
 								</tr>
 								<tr>
 									<td>
@@ -55,134 +64,42 @@
 							</tbody>
 						</table>
 					</div>
-				</form>
+				</form:form>
 			</div>
+			<!-- Supplier Tab -->
 			<div id="supplier" class="tab-pane fade ">
-				<form method="post" action="adminPage/saveSupplier"
-					class="form-signin" enctype="multipart/form-data">
+				<form:form action="${contextRoot}/admin/saveSupp" method="post"
+					modelAttribute="supplier" class="form-signin">
 					<h3>Update Supplier Details</h3>
 					<div class="form-group">
 						<table class="table table-hover ">
 							<tbody>
 								<tr>
-									<td><label for="sid">Supplier ID</label></td>
-									<td><input type="text" class="form-control" id="sid"
-										placeholder="Enter Supplier id " required>
+									<td><form:label path="sid">Supplier ID</form:label></td>
+									<td><form:input path="sid" type="text"
+											class="form-control" id="sid" placeholder="Enter Supplier id" />
 								</tr>
 								<tr>
-									<td><label for="sname">Supplier Name</label></td>
-									<td><input type="text" class="form-control" id="sname"
-										placeholder="Enter Supplier name " required>
+									<td><form:label path="sname">Supplier Name</form:label></td>
+									<td><form:input path="sname" type="text"
+											class="form-control" id="sname"
+											placeholder="Enter Supplier name " />
 								</tr>
 								<tr>
-									<td>
-										<button type="submit" class="btn btn-default ">Submit
-										</button>
-									</td>
-									<td>
-										<button type="reset" class="btn btn-lg btn-primary ">Cancel
-										</button>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</form>
-			</div>
-			<div id="products" class="tab-pane fade ">
-				<form method="post" action="/adminPage/saveProduct"
-					class="form-signin" enctype="multipart/form-data">
-					<h3>Update Produtcs Details</h3>
-					<div class="form-group">
-						<table class="table table-hover ">
-							<tbody>
-								<tr>
-									<td><label for="pid">Produtcs ID</label></td>
-									<td><input type="text" class="form-control" id="pid"
-										placeholder="Enter Produtcs id " required></td>
-								</tr>
-								<tr>
-									<td><label for="pname">Produtcs Name</label></td>
-									<td><input type="text" class="form-control" id="pname"
-										placeholder="Enter Produtcs name " required></td>
-								</tr>
-								<tr>
-									<td><label for="pDesc">Product Description</label></td>
-									<td><textarea class="form-control" id="pDesc" rows="3"></textarea></td>
-								</tr>
-								<tr>
-									<td><label for="pPrice">Produtcs Price</label></td>
-									<td><input type="text" class="form-control" id="pPrice"
-										placeholder="Enter Produtcs price " required></td>
-								</tr>
-
-								<tr>
-									<td><label for="pStock">Stock</label></td>
-									<td><input type="text" class="form-control" id="pStock"
-										placeholder="Enter Stock" name="pStock" required></td>
-								</tr>
-								<tr>
-									<td><label for="pDesc">Product Description</label></td>
-									<td><textarea class="form-control" id="pDesc" rows="3"
-											required></textarea></td>
-								</tr>
-								<tr>
-									<td><div class="form-group">
-											<label for="cid">Category ID</label> <select
-												class="form-control" id="cid" name="cid">
-												<option>-----Category---</option>
-												<c:forEach items="${catList}" var="cate">
-													<option value="${cate.cid }">${cate.cname}</option>
-												</c:forEach>
-												<option>cat 1</option>
-												<option>cat 2</option>
-											</select>
-										</div></td>
-								</tr>
-								<tr>
-									<td><div class="form-group">
-											<label for="sid">Supplier ID</label> <select
-												class="form-control" id="sid" name="sid">
-												<option>-----Supplier---</option>
-												<c:forEach items="${satList}" var="sate">
-													<option value="${sate.cid }">${sate.sname}</option>
-												</c:forEach>
-												<option>supplier 1</option>
-												<option>supplier 2</option>
-											</select>
-										</div></td>
-								</tr>
-								<tr>
-									<td>
-										<div class="fileinput fileinput-new" data-provides="fileinput">
-											<label for="pImage">Product Image</label> <input type="file"
-												class="form-control-file" id="pImage" name="file"
-												accept="image/*" required>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<button type="submit" class="btn btn-lg btn-primary ">Submit
-										</button>
-									</td>
-									<td><button type="reset" class="btn btn-lg btn-primary ">Cancel
+									<td><button type="submit" class="btn btn-primary ">Submit
+										</button></td>
+									<td><button type="reset"
+											class="btn btn-lg btn-primary ">Cancel
 										</button></td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
-				</form>
+				</form:form>
 			</div>
+			
 		</div>
 	</div>
-	<script>
-		$(document).ready(function() {
-			$(".nav-tabs a").click(function() {
-				$(this).tab('show');
-			});
-		});
-	</script>
 	<!--%@include file="/WEB-INF/views/footer.jsp"%>-->
 </body>
 </html>

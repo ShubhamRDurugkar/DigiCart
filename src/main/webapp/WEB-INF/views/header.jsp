@@ -123,7 +123,13 @@
 										<li><a href="#">Cat1</a></li>
 										<li><a href="#">Cat2</a></li>
 										<li><a href="#">Cat3</a></li>
-									</ul></li>
+									</ul>
+										<li><a href="registerPage"> <i class="fa">&#xf2be;Register</i>
+									</a></li>
+									<li><a href="loginPage"> <span class="glyphicon">&#xe195;SignIn</span></a></li>
+									<li><a href="javascript:void(0);" style="font-size: 15px;"
+										class="icon" onclick="myFunction()">&#9776;</a></li>
+									</li>
 
 								<!-- <li class="dropdown"><a href="#" class="dropdown-toggle"
 									data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -146,16 +152,7 @@
 									</span>
 								</div>
 							</form>-->
-
-							<div id="navbar" class="navbar-collapse collapse">
-								<ul class="nav navbar-nav navbar-right">
-									<li><a href="registerPage"> <i class="fa">&#xf2be;Register</i>
-									</a></li>
-									<li><a href="loginPage"> <span class="glyphicon">&#xe195;SignIn</span></a></li>
-									<li><a href="javascript:void(0);" style="font-size: 15px;"
-										class="icon" onclick="myFunction()">&#9776;</a></li>
-								</ul>
-							</div>
+							
 						</div>
 					</div>
 				</nav>
