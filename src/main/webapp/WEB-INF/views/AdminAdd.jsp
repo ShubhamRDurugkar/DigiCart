@@ -88,8 +88,7 @@
 								<tr>
 									<td><button type="submit" class="btn btn-primary ">Submit
 										</button></td>
-									<td><button type="reset"
-											class="btn btn-lg btn-primary ">Cancel
+									<td><button type="reset" class="btn btn-lg btn-primary ">Cancel
 										</button></td>
 								</tr>
 							</tbody>
@@ -97,7 +96,89 @@
 					</div>
 				</form:form>
 			</div>
-			
+			<div id="products" class="tab-pane fade ">
+				<form:form modelAttribute="products" method="post"
+					action="${contextRoot}/admin/saveProduct" class="form-signin"
+					enctype="multipart/form-data">
+					<h3>Update Products Details</h3>
+					<div class="form-group">
+						<table class="table table-hover ">
+							<tbody>
+								<!-- <tr>
+									<td><form:label path="pid">Products ID</form:label></td>
+									<td><form:input path="pid" type="number"
+											class="form-control" id="pid"
+											placeholder="Enter Produtcs id " /></td>
+								</tr>-->
+								<tr>
+									<td><form:label path="pname">Products Name</form:label></td>
+									<td><form:input path="pname" type="text"
+											class="form-control" id="pname"
+											placeholder="Enter Produtcs name " /></td>
+								</tr>
+								<tr>
+									<td><form:label path="pDescription">Product Description</form:label></td>
+									<td><form:textarea path="pDescription"
+											class="form-control" id="pDescritption" rows="3" /></td>
+								</tr>
+								<tr>
+									<td><form:label path="pPrice">Product Price</form:label></td>
+									<td><form:input path="pPrice" type="text"
+											class="form-control" id="pPrice"
+											placeholder="Enter Produtcs price " /></td>
+								</tr>
+
+								<tr>
+									<td><form:label path="pStock">Stock</form:label></td>
+									<td><form:input path="pStock" type="text"
+											class="form-control" id="pStock" placeholder="Enter Stock"
+											name="pStock" /></td>
+								</tr>
+								<tr>
+									<td><div class="form-group">
+											<label >Select Category</label>
+											<select class="form-control" name="pCategory">
+												<option>-----Category---</option>
+												<c:forEach items="${categories}" var="cate">
+													<option value="${cate.cid }">${cate.cname}</option>
+												</c:forEach>
+											</select>
+										</div></td>
+								</tr>
+								<tr>
+									<td><div class="form-group">
+											<label>Select Supplier</label>
+											<select class="form-control" id="pSupplier" name="pSupplier">
+												<option>-----Supplier---</option>
+												<c:forEach items="${suppliers}" var="sate">
+													<option value="${sate.sid }">${sate.sname}</option>
+												</c:forEach>
+											</select>
+										</div></td>
+								</tr>
+								<tr>
+									<td>
+										<div class="fileinput fileinput-new" data-provides="fileinput">
+											<form:label path="pImage">Product Image</form:label>
+											<form:input path="pImage" type="file"
+												class="form-control-file" id="pImage" name="file"
+												accept="image/*" />
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td><form:button type="submit"
+											class="btn btn-lg btn-primary ">Submit
+										</form:button></td>
+									<td><form:button type="reset"
+											class="btn btn-lg btn-primary ">Cancel
+										</form:button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</form:form>
+			</div>
 		</div>
 	</div>
 	<!--%@include file="/WEB-INF/views/footer.jsp"%>-->

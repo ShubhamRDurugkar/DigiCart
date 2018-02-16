@@ -68,15 +68,31 @@
 
 @media screen and (max-width: 600px) {
 	.topnav
-	a:not (:first-child ) {
-		display: none;
-	}
-	.topnav a.icon {
-		float: right;
-		display: block;
-	}
+	
+	
+	a
+	:not
+	 
+	(
+	:first-child
+	 
+	)
+	{
+	display
+	:
+	 
+	none
+	;
+	
+	
 }
 
+.topnav a.icon {
+	float: right;
+	display: block;
+}
+
+}
 @media screen and (max-width: 600px) {
 	.topnav.responsive {
 		position: relative;
@@ -124,12 +140,12 @@
 										<li><a href="#">Cat2</a></li>
 										<li><a href="#">Cat3</a></li>
 									</ul>
-										<li><a href="registerPage"> <i class="fa">&#xf2be;Register</i>
-									</a></li>
-									<li><a href="loginPage"> <span class="glyphicon">&#xe195;SignIn</span></a></li>
-									<li><a href="javascript:void(0);" style="font-size: 15px;"
-										class="icon" onclick="myFunction()">&#9776;</a></li>
-									</li>
+								<li><a href="registerPage"> <i class="fa">&#xf2be;Register</i>
+								</a></li>
+								<li><a href="loginPage"> <span class="glyphicon">&#xe195;SignIn</span></a></li>
+								<li><a href="javascript:void(0);" style="font-size: 15px;"
+									class="icon" onclick="myFunction()">&#9776;</a></li>
+								
 
 								<!-- <li class="dropdown"><a href="#" class="dropdown-toggle"
 									data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -152,7 +168,7 @@
 									</span>
 								</div>
 							</form>-->
-							
+
 						</div>
 					</div>
 				</nav>
