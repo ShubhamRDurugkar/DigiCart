@@ -1,11 +1,15 @@
+<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-
+<%@taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
 <spring:url var="css" value="/resources/css" />
-<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">-->
-<!DOCTYPE html>
+<spring:url var="js" value="/resources/js" />
+<spring:url var="jq" value="/resources/jq" />
+
+<c:set var="contextRoot" value="${pageContext.request.contextPath}"></c:set>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -66,27 +70,6 @@
 	display: none;
 }
 
-@media screen and (max-width: 600px) {
-	.topnav
-	
-	
-	a
-	:not
-	 
-	(
-	:first-child
-	 
-	)
-	{
-	display
-	:
-	 
-	none
-	;
-	
-	
-}
-
 .topnav a.icon {
 	float: right;
 	display: block;
@@ -126,49 +109,42 @@
 									class="icon-bar"></span> <span class="icon-bar"></span> <span
 									class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="/home">DigiCart</a>
+							<a class="navbar-brand" href="#home">DigiCart</a>
 						</div>
 						<div id="navbar" class="navbar-collapse collapse">
 							<ul class="nav navbar-nav">
-								<li><a href="home"><i class="fa fa-home"></i>Home</a></li>
-								<li><a href="admin"><i class="fa fa-admin"></i>Admin</a></li>
+								<li><a href="${contextRoot }"> <i class="fa fa-home"></i>Home
+								</a></li>
+								<security:authorize access="hasAuthority('ROLE_ADMIN')">
+									<li><a href="admin"><i class="fa fa-admin"></i>Admin</a></li>
+								</security:authorize>
 								<li class="dropdown"><a href="#" class="dropdown-toggle"
 									data-toggle="dropdown" role="button" aria-haspopup="true"
-									aria-expanded="false">ProductList <span class="caret"></span></a>
+									aria-expanded="false">Category List <span class="caret"></span></a>
 									<ul class="dropdown-menu">
-										<li><a href="#">Cat1</a></li>
-										<li><a href="#">Cat2</a></li>
-										<li><a href="#">Cat3</a></li>
-									</ul>
-								<li><a href="registerPage"> <i class="fa">&#xf2be;Register</i>
-								</a></li>
-								<li><a href="loginPage"> <span class="glyphicon">&#xe195;SignIn</span></a></li>
-								<li><a href="javascript:void(0);" style="font-size: 15px;"
-									class="icon" onclick="myFunction()">&#9776;</a></li>
-								
-
-								<!-- <li class="dropdown"><a href="#" class="dropdown-toggle"
-									data-toggle="dropdown" role="button" aria-haspopup="true"
-									aria-expanded="false">Category <span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#">Jeans</a></li>
-										<li><a href="#">Shirts</a></li>
-										<li><a href="#">Shoes</a></li>
-
-									</ul></li>-->
-
+										<c:forEach items="${categories}" var="cate">
+											<li value="${cate.cid }"><a href="#${cate.cname}">${cate.cname}</a></li>
+										</c:forEach>
+									</ul></li>
 							</ul>
-							<!-- 		<form class="navbar-form navbar-left">
-								<div class="input-group">
-									<input type="text" class="form-control" placeholder="Search">
-									<span class="input-group-btn">
-										<button type="button" class="btn btn-default">
-											<span class="glyphicon glyphicon-search"></span>
-										</button>
-									</span>
-								</div>
-							</form>-->
-
+							<ul class="nav navbar-nav navbar-right">
+								<security:authorize access="isAnonymous()">
+									<li><a href="${contextRoot}/register"> <i class="fa">&#xf2be;Register</i>
+									</a></li>
+									<li><a href="${contextRoot}/login"> <span
+											class="glyphicon">&#xe195;Login</span></a></li>
+								</security:authorize>
+								<security:authorize access="isAuthenticated()">
+									<li class="dropdown"><a href="javascript:void(0)"
+										class="btn-btn-default dropwn-toggle" id="dropdownMenu1"
+										data-toggle="dropdown"> ${userModel.name} <span
+											class="caret"></span>
+									</a>
+										<ul class="dropdown-menu">
+											<li><a href="${contextRoot }/logout">Logout</a></li>
+										</ul></li>
+								</security:authorize>
+							</ul>
 						</div>
 					</div>
 				</nav>

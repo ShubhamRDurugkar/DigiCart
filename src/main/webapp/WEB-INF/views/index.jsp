@@ -1,15 +1,11 @@
-<!-- <html>
-<body>
-<br><br><br>
-<h2>Welcome to DigiCart</h2>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="home"%>   
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%> 
+<spring:url var="css" value="/resources/css" />
+<spring:url var="js" value="/resources/js" />
+<spring:url var="images" value="/resources/images" />
+<spring:url var="jq" value="/resources/jq" />
 
-<%= java.util.Calendar.getInstance().getTime() %>
-
-<a href="home">Click here to Go on DigiCart</a>
-
-</body>
-</html> -->
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="home"%>    
 <html>
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">

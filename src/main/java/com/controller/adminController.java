@@ -25,6 +25,7 @@ import com.model.Supplier;
 
 @Controller
 @Configuration
+
 public class adminController {
 
 	@Autowired
@@ -36,11 +37,14 @@ public class adminController {
 	@Autowired
 	ProductDaoImpl productDaoImpl;
 
-	@RequestMapping(value = { "/admin" }, method = RequestMethod.GET)
+	/* Admin Controller */
+	@RequestMapping(value = { "/admin" })
 	public String adminPage() {
 		return "AdminAdd";
 	}
+	
 
+	
 	@RequestMapping(value = "/admin/saveCate", method = RequestMethod.POST)
 	public ModelAndView saveCategotyData(@RequestParam("cid") String cid, @RequestParam("cname") String cname) {
 		ModelAndView mv = new ModelAndView();

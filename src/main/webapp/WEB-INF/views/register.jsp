@@ -4,8 +4,12 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <spring:url var="css" value="/resources/css" />
+<spring:url var="js" value="/resources/js" />
+<spring:url var="images" value="/resources/images" />
 
-<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">-->
+
+<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,7 +64,7 @@ div#OR {
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title" id="myModalLabel">
-						Login/Registration - <a href="/home">Home</a>
+						Registration - <a href="${contextRoot }">Home</a>
 					</h4>
 				</div>
 				<div class="modal-body">
@@ -74,36 +78,6 @@ div#OR {
 							</ul>
 							<!-- Tab panes -->
 							<div class="tab-content">
-								<!--<form:form id="user" modelAttribute="user"
-									class="form-horizontal" method="post">
-									<div class="tab-pane active" id="Login">
-										<form role="form" class="form-horizontal">
-											<div class="form-group">
-												<label class="col-sm-2 control-label"> Email</label>
-												<div class="col-sm-8">
-													<form:input path="email" type="email"
-														class="form-control" id="email" placeholder="Email" />
-												</div>
-											</div>
-											<div class="form-group">
-												<form:label path="password" for="password"
-													class="col-sm-2 control-label">
-													Password</form:label>
-												<div class="col-sm-10">
-													<form:input path="password" name="password" type="password"
-														class="form-control" id="password" placeholder="Email" />
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-sm-2"></div>
-												<div class="col-sm-10">
-													<form:button type="submit" class="btn btn-primary btn-sm">
-														Submit</form:button>
-												</div>
-											</div>
-										</form>
-									</div>
-								</form:form>-->
 								<form:form id="user" action="registerUser"
 									cssClass="form-horizontal" modelAttribute="user" method="post">
 									<div class="tab-pane" id="Registration">
@@ -148,7 +122,8 @@ div#OR {
 												Address</form:label>
 											<div class="col-sm-10">
 												<form:input path="address" name="address" type="textarea"
-													class="form-control" id="address" placeholder="Enter address" />
+													class="form-control" id="address"
+													placeholder="Enter address" />
 											</div>
 										</div>
 										<div class="form-group">
@@ -156,7 +131,8 @@ div#OR {
 												Country</form:label>
 											<div class="col-sm-10">
 												<form:input path="country" name="country" type="text"
-													class="form-control" id="country" placeholder="Enter Country" />
+													class="form-control" id="country"
+													placeholder="Enter Country" />
 											</div>
 										</div>
 										<div class="row">

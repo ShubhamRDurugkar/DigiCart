@@ -4,6 +4,8 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <spring:url var="css" value="/resources/css" />
+<spring:url var="js" value="/resources/js" />
+<spring:url var="jq" value="/resources/jq" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,8 +50,8 @@
 					style="font-size: 24px" class="fa">&#xf099;</i></a> <a
 					href="https://plus.google.com/"> <i style="font-size: 24px"
 					class="fa">&#xf0d5;</i>
-				</a> All Rights Reserved © 2018 | <a href="">About Us</a> | <a href="">Contact
-					US</a>
+				</a> All Rights Reserved © 2018 | <a href="${contextRoot}/aboutUs">About
+					Us</a> | <a href="${contextRoot}/contactUs">Contact US</a>
 			</div>
 		</div>
 	</div>

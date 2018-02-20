@@ -3,9 +3,12 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page isELIgnored="false" language="java"%>
-<c:set var="contextRoot" value="${pageContext.request.contextPath}"></c:set>
 <spring:url var="css" value="/resources/css" />
+<spring:url var="js" value="/resources/js" />
+<spring:url var="images" value="/resources/images" />
+<spring:url var="jq" value="/resources/jq" />
+<%@page isELIgnored="false" language="java"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -136,8 +139,8 @@
 								</tr>
 								<tr>
 									<td><div class="form-group">
-											<label >Select Category</label>
-											<select class="form-control" name="pCategory">
+											<label>Select Category</label> <select class="form-control"
+												name="pCategory">
 												<option>-----Category---</option>
 												<c:forEach items="${categories}" var="cate">
 													<option value="${cate.cid }">${cate.cname}</option>
@@ -147,8 +150,8 @@
 								</tr>
 								<tr>
 									<td><div class="form-group">
-											<label>Select Supplier</label>
-											<select class="form-control" id="pSupplier" name="pSupplier">
+											<label>Select Supplier</label> <select class="form-control"
+												id="pSupplier" name="pSupplier">
 												<option>-----Supplier---</option>
 												<c:forEach items="${suppliers}" var="sate">
 													<option value="${sate.sid }">${sate.sname}</option>
