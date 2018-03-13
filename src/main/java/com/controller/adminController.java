@@ -25,7 +25,7 @@ import com.model.Supplier;
 
 @Controller
 @Configuration
-
+@RequestMapping(value = { "/admin" })
 public class adminController {
 
 	@Autowired
@@ -38,16 +38,16 @@ public class adminController {
 	ProductDaoImpl productDaoImpl;
 
 	/* Admin Controller */
-	@RequestMapping(value = { "/admin" })
+	@RequestMapping()
 	public String adminPage() {
 		return "AdminAdd";
 	}
 	
 
-	
-	@RequestMapping(value = "/admin/saveCate", method = RequestMethod.POST)
-	public ModelAndView saveCategotyData(@RequestParam("cid") String cid, @RequestParam("cname") String cname) {
-		ModelAndView mv = new ModelAndView();
+	/*Adding category into database*/
+	@RequestMapping(value = "/saveCate", method = RequestMethod.POST)
+	public ModelAndView saveCategotyData(@RequestParam("cid") int cid, @RequestParam("cname") String cname) {
+		ModelAndView mv = new ModelAndView("home");
 		Category category = new Category();
 		category.setCid(cid);
 		category.setCname(cname);
@@ -59,6 +59,140 @@ public class adminController {
 		return mv;
 	}
 
+	
+	/* save supplier*/	
+	@RequestMapping(value = "/saveSupp", method = RequestMethod.POST)
+	public ModelAndView saveSupplierData(@RequestParam("sid") int sid, @RequestParam("sname") String sname) {
+		ModelAndView mv = new ModelAndView("home");
+		Supplier supplier = new Supplier();
+		supplier.setSid(sid);
+		supplier.setSname(sname);
+		supplierDaoImpl.insertSupp(supplier);
+		mv.addObject("msg", "Suppliery \'" + sid + " - " + sname + "\' Added Successfully");
+		System.out.println("Supplier " + sname + " Added Successfully");
+		mv.setViewName("home");
+		return mv;
+	}
+
+
+	/*Adding Product into database*/
+	@RequestMapping(value = "/saveProduct", method = RequestMethod.POST)
+	public String saveProduct(@RequestParam("pImage") MultipartFile file, HttpServletRequest req) {
+
+		Product product = new Product();
+		product.setPname(req.getParameter("pname"));
+		product.setpDescription(req.getParameter("pDescription"));
+		product.setpPrice(Float.parseFloat(req.getParameter("pPrice")));
+		product.setpStock(Integer.parseInt(req.getParameter("pStock")));
+		Category cat=new Category();
+		cat.setCid(Integer.parseInt(req.getParameter("pCategory")));
+		product.setCategory(cat);
+		Supplier supp=new Supplier();
+		supp.setSid(Integer.parseInt(req.getParameter("pSupplier")));
+		product.setSupplier(supp);
+		
+		String filePath = req.getSession().getServletContext().getRealPath("/");
+		String fileName = file.getOriginalFilename();
+		product.setPimage(fileName);
+		productDaoImpl.insertProduct(product); // create ProductDao
+		
+		try {
+			byte[] imageByte = file.getBytes();
+			BufferedOutputStream fos = new BufferedOutputStream(
+					new FileOutputStream(filePath + "/resources/images/" + fileName));
+			fos.write(imageByte);
+			fos.close();
+		} catch (Exception e) {
+		}
+
+		return "home";
+	}
+	
+/*	Get product by category id
+	@RequestMapping(value = "/adminProductList", method = RequestMethod.POST)
+	public ModelAndView productList(@RequestParam("cid") String cid) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("productList",productDaoImpl.getProductByCid(cid));
+		System.out.println("productList displayed Successfully");
+		mv.setViewName("ProductCustomerList");
+		return mv;
+	}
+	
+	Retrieve products
+	@RequestMapping(value = "/productList")
+	public ModelAndView adminList() {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("productList",productDaoImpl.retrieveProducts());
+		System.out.println("productList retrieved Successfully");
+		mv.setViewName("ProductAdminList");
+		return mv;
+	}
+	
+	
+	@RequestMapping(value = "/produCustList")
+	public ModelAndView getCustTable(@RequestParam("cid")int cid) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("productList",productDaoImpl.getProductById(cid));
+		System.out.println("productCustList retrieved Successfully");
+		mv.setViewName("productCustList");
+		return mv;
+	}*/
+	
+	/*Get product by category id
+	@RequestMapping(value = "/updateProduct", method = RequestMethod.POST)
+	public ModelAndView updateProduct(@RequestParam("pid") int pid) {
+		ModelAndView mv = new ModelAndView();
+		Product p=productDaoImpl.getProductById(pid);
+		mv.addObject("product",p);
+		mv.addObject("catList",categoryDaoImpl.getAllCategories());
+		mv.addObject("suppList",supplierDaoImpl.getAllSuppliers());
+		System.out.println("productList displayed Successfully");
+		mv.setViewName("updateProd");
+		return mv;
+	}*/
+	
+/*	Adding Product into database
+	@RequestMapping(value = "/updateProduct", method = RequestMethod.POST)
+	public ModelAndView updateProduct(@RequestParam("pImage") MultipartFile file, HttpServletRequest req) {
+		ModelAndView mv=new ModelAndView();
+		Product product = new Product();
+		product.setPname(req.getParameter("pname"));
+		product.setpDescription(req.getParameter("pDescription"));
+		product.setpPrice(Float.parseFloat(req.getParameter("pPrice")));
+		product.setpStock(Integer.parseInt(req.getParameter("pStock")));
+		Category cat=new Category();
+		cat.setCid(Integer.parseInt(req.getParameter("pCategory")));
+		product.setCategory(cat);
+		Supplier supp=new Supplier();
+		supp.setSid(Integer.parseInt(req.getParameter("pSupplier")));
+		product.setSupplier(supp);
+		
+		String filePath = req.getSession().getServletContext().getRealPath("/");
+		String fileName = file.getOriginalFilename();
+		product.setPimage(fileName);
+		productDaoImpl.updateProduct(product); // update ProductDao
+		
+		try {
+			byte[] imageByte = file.getBytes();
+			BufferedOutputStream fos = new BufferedOutputStream(
+					new FileOutputStream(filePath + "/resources/" + fileName));
+			fos.write(imageByte);
+			fos.close();
+		} catch (Exception e) {
+		}
+        mv.addObject(product);
+        mv.setViewName("redirect:/productList?update");
+		return mv;
+	}
+	
+	Retrieve products
+	@RequestMapping(value = "/deleteProduct/{pid}")
+	public String delProduct(@PathVariable("pid")int pid) {
+		productDaoImpl.deleteProduct(pid);
+		return "redirect:/productList?del";
+	}
+*/
+	/* Adding attributes */
 	@ModelAttribute("category")
 	public Category getCategory() {
 		return new Category();
@@ -73,56 +207,6 @@ public class adminController {
 	public Product getProducts() {
 		return new Product();
 	}
-
-	// save supplier
-	@RequestMapping(value = "/admin/saveSupp", method = RequestMethod.POST)
-	public ModelAndView saveSupplierData(@RequestParam("sid") String sid, @RequestParam("sname") String sname) {
-		ModelAndView mv = new ModelAndView();
-		Supplier supplier = new Supplier();
-		supplier.setSid(sid);
-		supplier.setSname(sname);
-		supplierDaoImpl.insertSupp(supplier);
-		mv.addObject("msg", "Suppliery \'" + sid + " - " + sname + "\' Added Successfully");
-		System.out.println("Supplier " + sname + " Added Successfully");
-		mv.setViewName("home");
-		return mv;
-	}
-
-
-	// save Product
-	@RequestMapping(value = "/admin/saveProduct", method = RequestMethod.POST)
-	public String saveProduct(@RequestParam("pImage") MultipartFile file, HttpServletRequest req) {
-
-		Product product = new Product();
-		product.setPname(req.getParameter("pname"));
-		product.setpDescription(req.getParameter("pDescription"));
-		product.setpPrice(Float.parseFloat(req.getParameter("pPrice")));
-		product.setpStock(Integer.parseInt(req.getParameter("pStock")));
-		Category cat=new Category();
-		cat.setCid(req.getParameter("pCategory"));
-		product.setCategory(cat);
-		Supplier supp=new Supplier();
-		supp.setSid(req.getParameter("pSupplier"));
-		product.setSupplier(supp);
-		
-		String filePath = req.getSession().getServletContext().getRealPath("/");
-		String fileName = file.getOriginalFilename();
-		product.setPimage(fileName);
-		productDaoImpl.insertProduct(product); // create ProductDao
-		
-		try {
-			byte[] imageByte = file.getBytes();
-			BufferedOutputStream fos = new BufferedOutputStream(
-					new FileOutputStream(filePath + "/resources/" + fileName));
-			fos.write(imageByte);
-			fos.close();
-		} catch (Exception e) {
-		}
-
-		return "home";
-	}
-	
-
 	// Getting all categories to Product form
 	@ModelAttribute("categories")
 	public List<Category> getCategories() {

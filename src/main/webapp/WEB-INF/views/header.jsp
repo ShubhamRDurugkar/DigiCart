@@ -25,73 +25,6 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style>
-.item {
-	height: 100%;
-	width: 100%;
-}
-
-.footer {
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	background-color: blue;
-	color: white;
-	text-align: center;
-}
-
-.topnav {
-	overflow: hidden;
-	background-color: #333;
-}
-
-.topnav a {
-	float: left;
-	display: block;
-	color: #f2f2f2;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-	font-size: 17px;
-}
-
-.topnav a:hover {
-	background-color: #ddd;
-	color: black;
-}
-
-.active {
-	background-color: #4CAF50;
-	color: white;
-}
-
-.topnav .icon {
-	display: none;
-}
-
-.topnav a.icon {
-	float: right;
-	display: block;
-}
-
-}
-@media screen and (max-width: 600px) {
-	.topnav.responsive {
-		position: relative;
-	}
-	.topnav.responsive .icon {
-		position: absolute;
-		right: 0;
-		top: 0;
-	}
-	.topnav.responsive a {
-		float: none;
-		display: block;
-		text-align: left;
-	}
-}
-</style>
 </head>
 <body>
 
@@ -99,7 +32,7 @@
 		<div class="navbar-fluid">
 			<div class="container">
 
-				<nav class="navbar navbar-inverse " class="navbar-collapse collapse">
+				<nav class="navbar navbar-inverse navbar-fixed "role="navigation" class="navbar-collapse collapse">
 					<div class="container">
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle collapsed"
@@ -109,7 +42,7 @@
 									class="icon-bar"></span> <span class="icon-bar"></span> <span
 									class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="#home">DigiCart</a>
+							<a class="navbar-brand" href="${contextRoot }">DigiCart</a>
 						</div>
 						<div id="navbar" class="navbar-collapse collapse">
 							<ul class="nav navbar-nav">
@@ -117,10 +50,11 @@
 								</a></li>
 								<security:authorize access="hasAuthority('ROLE_ADMIN')">
 									<li><a href="admin"><i class="fa fa-admin"></i>Admin</a></li>
+										<li><a href="adminList"><i class="fa fa-admin"></i>AdminList</a></li>
 								</security:authorize>
 								<li class="dropdown"><a href="#" class="dropdown-toggle"
 									data-toggle="dropdown" role="button" aria-haspopup="true"
-									aria-expanded="false">Category List <span class="caret"></span></a>
+									aria-expanded="false">CategoryList<span class="caret"></span></a>
 									<ul class="dropdown-menu">
 										<c:forEach items="${categories}" var="cate">
 											<li value="${cate.cid }"><a href="#${cate.cname}">${cate.cname}</a></li>

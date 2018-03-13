@@ -23,20 +23,21 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
-.item {
+item {
 	height: 100%;
 	width: 100%;
 }
 
-.footer {
+footer {
 	position: fixed;
 	left: 0;
 	bottom: 0;
 	width: 100%;
-	background-color: blue;
+	background-color: black;
 	color: white;
 	text-align: center;
 }
+
 </style>
 </head>
 <body>
@@ -45,6 +46,7 @@
 		<div class="container">
 			<div class="centered clearfix"></div>
 			<div class="bottom-bar">
+			Copyright &copy; DigiCart.com
 				<a href="https://www.facebook.com/"> <i style="font-size: 24px"
 					class="fa">&#xf082; </i></a> <a href="https://twitter.com/login"> <i
 					style="font-size: 24px" class="fa">&#xf099;</i></a> <a

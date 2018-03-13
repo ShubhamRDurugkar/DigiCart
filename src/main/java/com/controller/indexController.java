@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.daoimpl.CategoryDaoImpl;
+import com.daoimpl.ProductDaoImpl;
 import com.daoimpl.UserDaoImpl;
 import com.model.Category;
 import com.model.User;
@@ -26,6 +27,8 @@ public class indexController {
 
 	@Autowired
 	CategoryDaoImpl categoryDaoImpl;
+	@Autowired
+	ProductDaoImpl productDaoImpl;
 
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public ModelAndView homePage(ModelAndView model) {
@@ -65,6 +68,28 @@ public class indexController {
 		return mv;
 
 	}
+	/*
+	 * Viewing a single product
+	 * */
+	
+/*	@RequestMapping(value = "/showSingleProduct") 
+	public ModelAndView showSingleProduct(@PathVariable int id) {
+		
+		ModelAndView mv = new ModelAndView("page");
+		
+		Product product = productDaoImpl.getProductById(id);
+		
+		mv.addObject("title", product.getPname());
+		mv.addObject("product", product);
+		
+		mv.addObject("userClickShowProduct", true);
+		
+		mv.setViewName("singleProduct");
+		return mv;
+		
+	}*/
+	
+
 
 	/* Access denied page */
 	@RequestMapping(value = "/access-denied")
@@ -111,6 +136,16 @@ public class indexController {
 		
 		return "redirect:/login?logout";
 	}
+
+	/*AdminList*/
+	@RequestMapping(value = "/adminList")
+	public ModelAndView adminList() {		
+		ModelAndView mv = new ModelAndView("AdminList");		
+		mv.addObject("title","Admin List");
+		mv.addObject("userClickAdminList",true);
+		return mv;				
+	}	
+
 
 	// Getting all categories to Product form
 	@ModelAttribute("categories")

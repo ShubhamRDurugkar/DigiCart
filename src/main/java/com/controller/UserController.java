@@ -7,9 +7,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import com.UserModel;
 import com.dao.UserDao;
 import com.model.User;
-import com.model.UserModel;
 
 @ControllerAdvice
 public class UserController {

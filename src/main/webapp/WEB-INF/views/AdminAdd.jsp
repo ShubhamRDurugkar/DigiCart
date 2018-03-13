@@ -6,9 +6,8 @@
 <spring:url var="css" value="/resources/css" />
 <spring:url var="js" value="/resources/js" />
 <spring:url var="images" value="/resources/images" />
-<spring:url var="jq" value="/resources/jq" />
 <%@page isELIgnored="false" language="java"%>
-
+<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,10 +25,10 @@
 <script src="main.js"></script>
 </head>
 <body bgcolor="lightblue">
-	<!-- %@include file="/WEB-INF/views/header.jsp"%>-->
+	<%@include file="header.jsp"%>
 	<div class="container">
 		<h2 align="center">Admin</h2>
-		<ul class="nav nav-tabs justified ">
+		<ul class="nav nav-tabs nav-justified ">
 			<li class="active"><a data-toggle="tab" href="#category ">Category
 			</a></li>
 			<li><a data-toggle="tab" href="#supplier">Supplier </a></li>
@@ -40,13 +39,13 @@
 			<div id="category" class="tab-pane fade in active">
 				<form:form action="${contextRoot}/admin/saveCate"
 					modelAttribute="category" method="post">
-					<h3>Update Category details</h3>
+					<h3>Add new Category</h3>
 					<div class="form-group">
 						<table class="table table-hover ">
 							<tbody>
 								<tr>
 									<td><form:label path="cid">Category ID</form:label></td>
-									<td><form:input type="text" path="cid"
+									<td><form:input type="number" path="cid"
 											class="form-control" id="cid" placeholder="Enter category id"
 											name="cid" />
 								</tr>
@@ -73,13 +72,13 @@
 			<div id="supplier" class="tab-pane fade ">
 				<form:form action="${contextRoot}/admin/saveSupp" method="post"
 					modelAttribute="supplier" class="form-signin">
-					<h3>Update Supplier Details</h3>
+					<h3>Add new Supplier</h3>
 					<div class="form-group">
 						<table class="table table-hover ">
 							<tbody>
 								<tr>
 									<td><form:label path="sid">Supplier ID</form:label></td>
-									<td><form:input path="sid" type="text"
+									<td><form:input path="sid" type="number"
 											class="form-control" id="sid" placeholder="Enter Supplier id" />
 								</tr>
 								<tr>
@@ -100,10 +99,10 @@
 				</form:form>
 			</div>
 			<div id="products" class="tab-pane fade ">
-				<form:form modelAttribute="products" method="post"
-					action="${contextRoot}/admin/saveProduct" class="form-signin"
+				<form:form action="${contextRoot}/admin/saveProduct" 
+					modelAttribute="products" method="post" class="form-signin"
 					enctype="multipart/form-data">
-					<h3>Update Products Details</h3>
+					<h3>Add new Product</h3>
 					<div class="form-group">
 						<table class="table table-hover ">
 							<tbody>
@@ -114,26 +113,26 @@
 											placeholder="Enter Produtcs id " /></td>
 								</tr>-->
 								<tr>
-									<td><form:label path="pname">Products Name</form:label></td>
-									<td><form:input path="pname" type="text"
-											class="form-control" id="pname"
+									<td><form:label path="pname">Products Name</form:label> <form:input
+											path="pname" type="text" class="form-control" id="pname"
 											placeholder="Enter Produtcs name " /></td>
 								</tr>
 								<tr>
-									<td><form:label path="pDescription">Product Description</form:label></td>
-									<td><form:textarea path="pDescription"
-											class="form-control" id="pDescritption" rows="3" /></td>
+									<td><form:label path="pDescription">Product Description</form:label>
+										<form:textarea path="pDescription" class="form-control"
+											id="pDescritption" rows="4"
+											placeholder="Enter Produtcs description " /></td>
 								</tr>
 								<tr>
-									<td><form:label path="pPrice">Product Price</form:label></td>
-									<td><form:input path="pPrice" type="text"
+									<td><form:label path="pPrice">Product Price</form:label>
+									<form:input path="pPrice" type="text"
 											class="form-control" id="pPrice"
 											placeholder="Enter Produtcs price " /></td>
 								</tr>
 
 								<tr>
-									<td><form:label path="pStock">Stock</form:label></td>
-									<td><form:input path="pStock" type="text"
+									<td><form:label path="pStock">Stock</form:label>
+									<form:input path="pStock" type="text"
 											class="form-control" id="pStock" placeholder="Enter Stock"
 											name="pStock" /></td>
 								</tr>
@@ -184,7 +183,9 @@
 			</div>
 		</div>
 	</div>
-	<!--%@include file="/WEB-INF/views/footer.jsp"%>-->
+	<!-- Footer comes here -->
+	<footer>
+		<%@include file="footer.jsp"%></footer>
 </body>
 </html>
 

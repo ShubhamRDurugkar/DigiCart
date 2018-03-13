@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html">
+<!DOCTYPE>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ContactUs</title>
+<title>Admin List</title>
 </head>
 <body>
 	<header>
@@ -15,7 +15,7 @@
 
 			<h1>Contact Us</h1>
 			<hr />
-			<h3>This is an contact us page</h3>
+			<h1>Here is an admin List.....!!</h1>
 
 		</div>
 
@@ -23,5 +23,6 @@
 	</div>
 	<footer>
 		<%@include file="footer.jsp"%></footer>
+
 </body>
 </html>

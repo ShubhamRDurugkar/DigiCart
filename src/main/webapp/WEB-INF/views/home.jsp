@@ -45,55 +45,60 @@
 		<%@include file="/WEB-INF/views/header.jsp"%>
 	</div>
 	<div class="container">
-		<div class="col-md-12">
-		
-			<div class="row carousel-holder">
 
-				<div class="col-md-12">
-					<div id="carousel-example-generic" class="carousel slide"
-						data-ride="carousel">
-						<ol class="carousel-indicators">
-							<li data-target="#carousel-example-generic" data-slide-to="0"
-								class="active"></li>
-							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-							<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-							<li data-target="#carousel-example-generic" data-slide-to="3"></li>
-						</ol>
-						<div class="carousel-inner">
+		<div class="row">
+			<div class="col-md-12">
 
-							<div class="item active">
-								<img class="slide-image" src="resources/images/7.png" alt="">
+				<div class="row carousel-holder">
+
+					<div class="col-md-12">
+						<div id="carousel-example-generic" class="carousel slide"
+							data-ride="carousel">
+							<ol class="carousel-indicators">
+								<li data-target="#carousel-example-generic" data-slide-to="0"
+									class="active"></li>
+								<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+								<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+								<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+							</ol>
+							<div class="carousel-inner">
+
+								<div class="item active">
+									<img class="slide-image" src="resources/images/7.png" alt="">
+								</div>
+								<div class="item">
+									<img class="slide-image" src="resources/images/3.png" alt="">
+								</div>
+								<div class="item">
+									<img class="slide-image" src="resources/images/7.png" alt="">
+								</div>
+								<div class="item">
+									<img class="slide-image" src="resources/images/2.png" alt="">
+								</div>
 							</div>
-							<div class="item">
-								<img class="slide-image" src="resources/images/3.png" alt="">
-							</div>
-							<div class="item">
-								<img class="slide-image" src="resources/images/7.png" alt="">
-							</div>
-							<div class="item">
-								<img class="slide-image" src="resources/images/2.png" alt="">
-							</div>
+							<a class="left carousel-control" href="#carousel-example-generic"
+								data-slide="prev"> <span
+								class="glyphicon glyphicon-chevron-left"></span>
+							</a> <a class="right carousel-control"
+								href="#carousel-example-generic" data-slide="next"> <span
+								class="glyphicon glyphicon-chevron-right"></span>
+							</a>
 						</div>
-						<a class="left carousel-control" href="#carousel-example-generic"
-							data-slide="prev"> <span
-							class="glyphicon glyphicon-chevron-left"></span>
-						</a> <a class="right carousel-control"
-							href="#carousel-example-generic" data-slide="next"> <span
-							class="glyphicon glyphicon-chevron-right"></span>
-						</a>
 					</div>
 				</div>
-			</div>
-		</div>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="span9">
-				<h4>Latest Products</h4>
-				<ul class="thumbnails">
-					<li class="span3">
+
+
+				<div class="row">
+					<div class="col-xs-12">
+						<h3>Most Viewed Products</h3>
+						<hr />
+					</div>
+				</div>
+				<div class="row is-table-row">
+
+					<div class="col-sm-4 ">
 						<div class="thumbnail">
-							<a href="index.jsp"><img src="resources/images/cam1.jpg"
+							<a href="${contextRoot}/showSingleProduct"><img src="resources/images/cam1.jpg"
 								alt="" /></a>
 							<div class="caption">
 								<h5 align="center">Panasonic Lumix DC-GH5GA-K 4K Camera
@@ -105,23 +110,23 @@
 								</h4>
 							</div>
 						</div>
-					</li>
-					<li class="span3">
+					</div>
+					<div class="col-sm-4">
 						<div class="thumbnail">
-							<a href="index.jsp"><img src="resources/images/cam2.jpg"
+							<a href="${contextRoot}/showSingleProduct"><img src="resources/images/cam2.jpg"
 								alt="" /></a>
 							<div class="caption">
-								<h5 align="center">Fujifilm INSTAX Wide 300 Instant Camera</h5>
+								<h5 align="center">Fujifilm INSTAX Wide Instant Camera</h5>
 								<p align="center">In Stock Available.</p>
 								<h4 style="text-align: center">
 									<a class="btn btn-primary" href="#">Buy at 24799.00Rs</a>
 								</h4>
 							</div>
 						</div>
-					</li>
-					<li class="span3">
+					</div>
+					<div class="col-sm-4">
 						<div class="thumbnail">
-							<a href="index.jsp"><img src="resources/images/cam3.jpg"
+							<a href="singleProduct.jsp"><img src="resources/images/cam3.jpg"
 								alt="" /></a>
 							<div class="caption">
 								<h5 align="center">Nikon Coolpix A10</h5>
@@ -131,10 +136,10 @@
 								</h4>
 							</div>
 						</div>
-					</li>
-					<li class="span3">
+					</div>
+					<div class="col-sm-4">
 						<div class="thumbnail">
-							<a href="index.jsp"><img src="resources/images/w1.jpg" alt="" /></a>
+							<a href="singleProduct.jsp"><img src="resources/images/w1.jpg" alt="" /></a>
 							<div class="caption">
 								<h5 align="center">Timewear analog black dial slim watch
 									for men</h5>
@@ -145,10 +150,10 @@
 								</h4>
 							</div>
 						</div>
-					</li>
-					<li class="span3">
+					</div>
+					<div class="col-sm-4">
 						<div class="thumbnail">
-							<a href="index.jsp"><img src="resources/images/w2.jpg" alt="" /></a>
+							<a href="singleProduct.jsp"><img src="resources/images/w2.jpg" alt="" /></a>
 							<div class="caption">
 								<h5 align="center">Casio Edifice Analog Dial Men's Watch</h5>
 								<p align="center">In Stock Available</p>
@@ -157,10 +162,10 @@
 								</h4>
 							</div>
 						</div>
-					</li>
-					<li class="span3">
+					</div>
+					<div class="col-sm-4">
 						<div class="thumbnail">
-							<a href="index.jsp"><img src="resources/images/w3.jpg" alt="" /></a>
+							<a href="singleProduct.jsp"><img src="resources/images/w3.jpg" alt="" /></a>
 							<div class="caption">
 								<h5 align="center">Sonata Analog Dial Men's Watch</h5>
 								<p align="center">In Stock Available</p>
@@ -169,14 +174,16 @@
 								</h4>
 							</div>
 						</div>
-					</li>
-				</ul>
+					</div>
+
+				</div>
 			</div>
 		</div>
 	</div>
-	
+
 	<div>
-		<%@include file="/WEB-INF/views/footer.jsp"%>
+		<footer>
+		<%@include file="footer.jsp"%></footer>
 	</div>
 </body>
 </html>

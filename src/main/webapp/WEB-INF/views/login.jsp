@@ -47,7 +47,7 @@
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
-					<a class="navbar-brand" href="${contextRoot}/home">DigiCart</a>
+					<a class="navbar-brand" href="${contextRoot}/">DigiCart</a>
 				</div>
 			</div>
 		</nav>
@@ -132,7 +132,7 @@
 
 
 		<!-- Footer comes here -->
-		<%@include file="footer.jsp"%>
+		<footer><%@include file="footer.jsp"%></footer>
 
 		<!-- jQuery -->
 		<script src="${js}/jquery.js"></script>

@@ -55,9 +55,9 @@ div#OR {
 </style>
 </head>
 <body>
-	<!-- Large modal -->
-	<!-- <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-    Login modal</button>-->
+	<div>
+		<%@include file="/WEB-INF/views/header.jsp"%>
+	</div>
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 		aria-labelledby="myLargeModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg">
@@ -85,12 +85,8 @@ div#OR {
 											<form:label path="name" class="col-sm-2 control-label">
 												Name</form:label>
 											<div class="col-sm-10">
-												<div class="row">
-													<div class="col-md-9">
-														<form:input path="name" type="text" name="name" id="name"
-															class="form-control" placeholder="Name" />
-													</div>
-												</div>
+												<form:input path="name" type="text" name="name" id="name"
+													class="form-control" placeholder="Name" />
 											</div>
 										</div>
 										<div class="form-group">
@@ -156,5 +152,7 @@ div#OR {
 	<script>
 		$('#myModal').modal('show');
 	</script>
+	<footer>
+		<%@include file="footer.jsp"%></footer>
 </body>
 </html>
